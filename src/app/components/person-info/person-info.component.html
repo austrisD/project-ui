@@ -1,0 +1,46 @@
+<p class="fs-5 text text-center mb-5">person-info works!</p>
+
+<div class="container">
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-primary mb-4"
+      (click)="getInfoFromService1()"
+    >
+      person1
+    </button>
+    <ul class="list-group">
+      <li *ngFor="let person of infoReceive1" class="list-group-item">
+        {{ person }}
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-primary my-2"
+      (click)="getInfoFromService2()"
+    >
+      person2
+    </button>
+    <ul class="list-group">
+      <li *ngFor="let person of infoReceive2" class="list-group-item">
+        {{ person }}
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-primary my-4"
+      (click)="getInfoFromService3()"
+    >
+      person3
+    </button>
+    <ul class="list-group">
+      <li *ngFor="let person of infoReceive3" class="list-group-item">
+        {{ person }}
+      </li>
+    </ul>
+  </div>
+</div>
