@@ -10,7 +10,7 @@
       person1
     </button>
     <ul class="list-group">
-      <li *ngFor="let person of infoReceive1" class="list-group-item">
+      <li [hidden]="isDisplay1" *ngFor="let person of infoReceive1" class="list-group-item">
         {{ person }}
       </li>
     </ul>
@@ -23,8 +23,8 @@
     >
       person2
     </button>
-    <ul class="list-group">
-      <li *ngFor="let person of infoReceive2" class="list-group-item">
+    <ul *ngIf="!isDisplay2" class="list-group">
+      <li  *ngFor="let person of infoReceive2" class="list-group-item">
         {{ person }}
       </li>
     </ul>
@@ -38,7 +38,7 @@
       person3
     </button>
     <ul class="list-group">
-      <li *ngFor="let person of infoReceive3" class="list-group-item">
+      <li [hidden]="isDisplay3" *ngFor="let person of infoReceive3" class="list-group-item">
         {{ person }}
       </li>
     </ul>
