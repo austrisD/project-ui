@@ -12,5 +12,24 @@
 //   background-color: aquamarine;
 // }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flexGame {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  overflow-x: auto;
+}

@@ -1,15 +1,21 @@
 <button (click)="test()" type="button" class="btn btn-primary">test</button>
-<h2>{{ ShowSearchInput() }}</h2>
-<div class="container">
-  <div class="card" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
+<h2>{{ ShowSearchInput() }} found:{{ SearchResults.results.length }}</h2>
+<div class="flexGame" [ngStyle]="{ height: returnContainerHight() }">
+  <div
+    *ngFor="let game of SearchResults.results"
+    class="card"
+    style="width: 18rem"
+  >
+    <img src="{{ game.background_image }}" class="card-img-top" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title">{{ game.name }}</h5>
+      <p class="card-text"></p>
+      <ul>
+        <li *ngFor="let genres of game.genres">{{ genres.name }}</li>
+      </ul>
+      <button type="button" class="btn btn-primary">Screenshots</button>
     </div>
   </div>
 </div>
+
+<!-- style="background-color:#{{ game.dominant_color }} " -->
