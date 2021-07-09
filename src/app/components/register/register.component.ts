@@ -7,7 +7,6 @@ import { RecordService } from '../../services/record.service';
 })
 export class RegisterComponent {
   object1 = new RecordService();
-  // constructor(public checkbox: boolean) {}
 
   submit(login) {
     console.log('form submit');

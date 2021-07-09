@@ -1,43 +1,44 @@
 <ul class="nav nav-tabs">
-  <li class="nav-item">
+  <li class="nav-item ms-2">
     <a
-      [ngClass]="{ active: home }"
-      (click)="checkRoute($event)"
+      [ngClass]="{ active: testLink() === roots.url }"
       class="nav-link"
-      href="#"
-      >Home</a
+      routerLink="{{ roots.url }}"
+      >{{ roots.title }}</a
     >
   </li>
   <li class="nav-item">
     <a
-      [ngClass]="{ active: PersonalInfo }"
-      (click)="checkRoute($event)"
+      [ngClass]="{ active: testLink() === roots.children.personalInfo.url }"
       class="nav-link"
-      routerLink="PersonalInfo"
-      >Personal Info</a
+      routerLink="{{ roots.children.personalInfo.url }}"
+      >{{ roots.children.personalInfo.title }}</a
     >
   </li>
   <li class="nav-item">
     <a
-      [ngClass]="{ active: register }"
-      (click)="checkRoute($event)"
+      [ngClass]="{
+        active: testLink() === roots.children.register.url
+      }"
       class="nav-link"
-      routerLink="register"
-      >Register</a
+      routerLink="{{ roots.children.register.url }}"
+      >{{ roots.children.register.title }}</a
     >
   </li>
   <li class="nav-item">
     <a
-      [ngClass]="{ active: gallery }"
-      (click)="checkRoute($event)"
+      [ngClass]="{ active: testLink() === roots.children.gallery.url }"
       class="nav-link"
-      routerLink="gallery"
-      >Gallery</a
+      routerLink="{{ roots.children.gallery.url }}"
+      >{{ roots.children.gallery.title }}</a
     >
   </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-      >Disabled</a
-    >
+  <li [hidden]="testLink().indexOf('search') !== 0" class="nav-item">
+    <p tabindex="-1" class="nav-link disabled active">Search Results</p>
+  </li>
+ 
+  <li class="nav-item ms-auto me-5" style="height: 37px">
+    <app-search-bar class="active"></app-search-bar>
   </li>
 </ul>
+<!-- make for each function -->

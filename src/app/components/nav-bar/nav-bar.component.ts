@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Roots } from '../../roots';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,18 +10,18 @@ export class NavBarComponent implements OnInit {
   PersonalInfo: boolean = false;
   register: boolean = false;
   gallery: boolean = false;
+  SearchSectionActive: boolean = true;
+
+  roots = Roots;
+  activePath!: string;
 
   constructor() {}
 
-  checkRoute(route) {
-    this.home = false;
-    this.PersonalInfo = false;
-    this.register = false;
-    this.gallery = false;
-
-    this[route.view.location.pathname.slice(1)] = true;
-    //must run onload
+  testLink() {
+    return window.location.pathname.slice(1);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activePath = window.location.pathname.slice(1);
+  }
 }

@@ -1,0 +1,14 @@
+<div>
+  <form class="input-group" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input
+      name="search"
+      ngModel
+      type="text"
+      class="form-control"
+      (click)="test()"
+      placeholder="Search game:"
+      routerLink="/"
+    />
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+  </form>
+</div>
