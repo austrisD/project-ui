@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
@@ -8,9 +7,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class SearchResultsComponent implements OnInit, OnDestroy {
   constructor() {}
 
-  ngOnInit(): void {
-
+  ShowSearchInput() {
+    const path = window.location.pathname;
+    return path.slice(path.search('/search/') + 8, path.length);
   }
+
+  ngOnInit(): void {}
 
   test() {}
 
