@@ -12,6 +12,10 @@
 //   background-color: aquamarine;
 // }
 
+::-webkit-scrollbar-track {
+  display: none;
+}
+
 html,
 body {
   height: 100%;
@@ -27,9 +31,14 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
+  max-width: 100%;
   height: fit-content;
   align-items: center;
   justify-content: space-between;
   height: fit-content;
   overflow-x: auto;
+}
+
+.backdrop {
+  background-color: #0d0f11b9;
 }

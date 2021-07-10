@@ -1,5 +1,7 @@
-<button (click)="test()" type="button" class="btn btn-primary">test</button>
-<h2>{{ ShowSearchInput() }} found:{{ SearchResults.results.length }}</h2>
+<div class="container-fluid">
+  <p class="display-5">Searched input:{{ ShowSearchInput() }}</p>
+  <p class="display-6">found:{{ SearchResults.results.length }}</p>
+</div>
 <div class="flexGame" [ngStyle]="{ height: returnContainerHight() }">
   <div
     *ngFor="let game of SearchResults.results"
@@ -13,9 +15,20 @@
       <ul>
         <li *ngFor="let genres of game.genres">{{ genres.name }}</li>
       </ul>
-      <button type="button" class="btn btn-primary">Screenshots</button>
+      <button
+        type="button"
+        (click)="modal = true; data = game"
+        class="btn btn-primary"
+      >
+        Screenshots
+      </button>
     </div>
   </div>
 </div>
+<app-modal
+  *ngIf="modal"
+  [modal]="modal"
+  (modalChange)="modal=$event"
+  [data]="data"
+></app-modal>
 
-<!-- style="background-color:#{{ game.dominant_color }} " -->

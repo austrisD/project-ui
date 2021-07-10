@@ -1,0 +1,32 @@
+<div class="modal backdrop" tabindex="-1" style="display: block" (click)="modalOff()">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ data.name }}</h5>
+        <button type="button" class="btn-close" (click)="modalOff()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-row flex-wrap" style="gap: 2px">
+          <div *ngFor="let tags of data.tags">
+            <span *ngIf="tags.language == 'eng'" class="badge bg-secondary">{{
+              tags.name
+            }}</span>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <img
+            *ngFor="let image of data.short_screenshots"
+            src="{{ image.image }}"
+            class="img-thumbnail"
+            alt="{{ data.name }}screenshot ID:{{ image.id }}"
+          />
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary">Save to my library</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="backdrop"></div> -->

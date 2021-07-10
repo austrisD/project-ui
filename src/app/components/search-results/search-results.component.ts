@@ -6,15 +6,27 @@ import { GameSearchService } from '../../services/game-search.service';
   templateUrl: './search-results.component.html',
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  SearchResults: any;
+  modal: boolean = false;
+  data: any;
+  selectGame: any;
+  SearchResults: any = {
+    results: [
+      {
+        name: '',
+        background_image: '',
+        genres: '',
+        length: '',
+      },
+    ],
+  };
 
   constructor(private _obj: GameSearchService) {
-    // if (window.location.pathname.slice(1).indexOf('search') == 0) {
-    _obj.getGameDate().subscribe((date) => {
-      console.log(date);
-      this.SearchResults = date;
-    });
-    // }
+    if (window.location.pathname.slice(1).indexOf('search') == 0) {
+      _obj.getGameDate().subscribe((date) => {
+        console.log(date);
+        this.SearchResults = date;
+      });
+    }
   }
 
   ShowSearchInput() {
@@ -24,17 +36,20 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   returnContainerHight() {
-    console.log(`${this.SearchResults.results.length * 65}px`);
+    // console.log(`${this.SearchResults.results.length * 65}px`);
+
     if (this.SearchResults.results.length * 65 < 500) {
       return `fit-content`;
     } else {
       return `${this.SearchResults.results.length * 65}px`;
     }
   }
+  activateModal() {
+    this.modal = !this.modal;
+    console.log(this.modal);
+    
+  }
 
   ngOnInit(): void {}
-
-  test() {}
-
   ngOnDestroy(): void {}
 }
