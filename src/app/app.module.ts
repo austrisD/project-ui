@@ -21,7 +21,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HomeComponent } from './components/home/home.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { FavoriteGamesComponent } from './components/favorite-games/favorite-games.component';
+import { CardComponent } from './components/_SharedElements/card/card.component';
+import { PopUpComponent } from './components/_SharedElements/card/pop-up/pop-up.component';
+import { AddFavoriteComponent } from './components/_SharedElements/add-favorite/add-favorite.component';
+import { DeleteFavoriteComponent } from './components/_SharedElements/delete-favorite/delete-favorite.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { ModalComponent } from './components/modal/modal.component';
     SearchBarComponent,
     SearchResultsComponent,
     HomeComponent,
-    ModalComponent,
+    FavoriteGamesComponent,
+    CardComponent,
+    PopUpComponent,
+    AddFavoriteComponent,
+    DeleteFavoriteComponent,
   ],
   imports: [
     BrowserModule,

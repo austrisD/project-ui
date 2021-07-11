@@ -1,13 +1,13 @@
-<div class="modal backdrop" tabindex="-1" style="display: block" (click)="modalOff()">
+<div class="modal backdrop" tabindex="-1" style="display: block">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">{{ data.name }}</h5>
+        <h5 class="modal-title">{{ game.name }}</h5>
         <button type="button" class="btn-close" (click)="modalOff()"></button>
       </div>
       <div class="modal-body">
-        <div class="d-flex flex-row flex-wrap" style="gap: 2px">
-          <div *ngFor="let tags of data.tags">
+        <div class="d-flex flex-row flex-wrap mb-3 mx-3" style="gap: 2px">
+          <div *ngFor="let tags of game.tags">
             <span *ngIf="tags.language == 'eng'" class="badge bg-secondary">{{
               tags.name
             }}</span>
@@ -15,18 +15,19 @@
         </div>
         <div class="container-fluid">
           <img
-            *ngFor="let image of data.short_screenshots"
+            *ngFor="let image of game.short_screenshots"
             src="{{ image.image }}"
             class="img-thumbnail"
-            alt="{{ data.name }}screenshot ID:{{ image.id }}"
+            alt="{{ game.name }}screenshot ID:{{ image.id }}"
           />
         </div>
 
         <div class="modal-footer">
-          <button class="btn btn-primary">Save to my library</button>
+          <button class="btn btn-primary" (click)="btnFunc(game)">{{ btnTag }}</button
+          ><!-- must pass as input-->
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <div class="backdrop"></div> -->
+<!-- @todo add more information -->

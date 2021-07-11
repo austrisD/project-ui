@@ -1,0 +1,29 @@
+<div class="card" style="width: 18rem">
+  <div class="card-header">
+    {{ data.name }}
+  </div>
+  <img src="{{ data.background_image }}" class="card-img" alt="..." />
+  <!-- if missing image else  -->
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"></p>
+    <ul>
+      <li *ngFor="let genres of data.genres">{{ genres.name }}</li>
+    </ul>
+    <button
+      type="button"
+      (click)="modal = true; passData = data"
+      class="btn btn-primary"
+    >
+      Screenshots
+    </button>
+  </div>
+</div>
+<app-pop-up
+  *ngIf="modal"
+  [modal]="modal"
+  (modalChange)="modal = $event"
+  [game]="passData"
+  [btnTag]="btnTag"
+  [btnFunc]="btnFunc"
+></app-pop-up>

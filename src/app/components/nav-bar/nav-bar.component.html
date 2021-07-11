@@ -1,42 +1,23 @@
 <ul class="nav nav-tabs">
   <li class="nav-item ms-2">
-    <a
-      [ngClass]="{ active: testLink() === roots.url }"
-      class="nav-link"
-      routerLink="{{ roots.url }}"
-      >{{ roots.title }}</a
+    <a [ngClass]="{ active: testLink() === '' }" class="nav-link" routerLink=""
+      >Home</a
     >
   </li>
-  <li class="nav-item">
+
+  <li *ngFor="let link of roots" class="nav-item ms-2">
     <a
-      [ngClass]="{ active: testLink() === roots.children.personalInfo.url }"
+      [ngClass]="{ active: testLink() === link.url }"
       class="nav-link"
-      routerLink="{{ roots.children.personalInfo.url }}"
-      >{{ roots.children.personalInfo.title }}</a
+      routerLink="{{ link.url }}"
+      >{{ link.title }}</a
     >
   </li>
-  <li class="nav-item">
-    <a
-      [ngClass]="{
-        active: testLink() === roots.children.register.url
-      }"
-      class="nav-link"
-      routerLink="{{ roots.children.register.url }}"
-      >{{ roots.children.register.title }}</a
-    >
-  </li>
-  <li class="nav-item">
-    <a
-      [ngClass]="{ active: testLink() === roots.children.gallery.url }"
-      class="nav-link"
-      routerLink="{{ roots.children.gallery.url }}"
-      >{{ roots.children.gallery.title }}</a
-    >
-  </li>
+
   <li [hidden]="testLink().indexOf('search') !== 0" class="nav-item">
     <p tabindex="-1" class="nav-link disabled active">Search Results</p>
   </li>
- 
+
   <li class="nav-item ms-auto me-5" style="height: 37px">
     <app-search-bar class="active"></app-search-bar>
   </li>

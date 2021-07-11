@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <p class="display-5">Favorite game</p>
+  <p class="display-6">Saved: {{ favorites.length }}</p>
+</div>
+<div class="flexGame">
+  <app-card
+    *ngFor="let game of favorites"
+    [data]="game"
+    [btnTag]="'delete favorite'"
+    [btnFunc]="deleteFavorite"
+  >
+  </app-card>
+</div>

@@ -1,14 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GameSearchService } from '../../services/game-search.service';
+import { ManageFavoriteService } from '../../services/manage-favorite.service';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  modal: boolean = false;
   data: any;
+  game: any = [];
   selectGame: any;
+
   SearchResults: any = {
     results: [
       {
@@ -20,7 +22,10 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     ],
   };
 
-  constructor(private _obj: GameSearchService) {
+  constructor(
+    private _obj: GameSearchService,
+    private manageFavoriteService: ManageFavoriteService
+  ) {
     if (window.location.pathname.slice(1).indexOf('search') == 0) {
       _obj.getGameDate().subscribe((date) => {
         console.log(date);
@@ -35,21 +40,24 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     return path.slice(path.search('/search/') + 8, path.length);
   }
 
-  returnContainerHight() {
-    // console.log(`${this.SearchResults.results.length * 65}px`);
-
-    if (this.SearchResults.results.length * 65 < 500) {
-      return `fit-content`;
-    } else {
-      return `${this.SearchResults.results.length * 65}px`;
-    }
-  }
-  activateModal() {
-    this.modal = !this.modal;
-    console.log(this.modal);
-    
-  }
+  // returnContainerHight() {
+  //   if (this.SearchResults.results.length * 65 < 500) {
+  //     return `fit-content`;
+  //   } else {
+  //     return `${this.SearchResults.results.length * 65}px`;
+  //   }
+  // }
 
   ngOnInit(): void {}
+
+
+  AddFavorite(game) {
+
+    this.manageFavoriteService
+      .addFavorites(game)
+      .subscribe((game) => this.game.push(game));
+  }
+
+  
   ngOnDestroy(): void {}
 }

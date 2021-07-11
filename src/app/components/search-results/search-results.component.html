@@ -1,34 +1,12 @@
 <div class="container-fluid">
   <p class="display-5">Searched input:{{ ShowSearchInput() }}</p>
-  <p class="display-6">found:{{ SearchResults.results.length }}</p>
+  <p class="display-6">found:{{ SearchResults.count }}</p>
 </div>
-<div class="flexGame" [ngStyle]="{ height: returnContainerHight() }">
-  <div
+<div class="flexGame">
+  <app-card
     *ngFor="let game of SearchResults.results"
-    class="card"
-    style="width: 18rem"
-  >
-    <img src="{{ game.background_image }}" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ game.name }}</h5>
-      <p class="card-text"></p>
-      <ul>
-        <li *ngFor="let genres of game.genres">{{ genres.name }}</li>
-      </ul>
-      <button
-        type="button"
-        (click)="modal = true; data = game"
-        class="btn btn-primary"
-      >
-        Screenshots
-      </button>
-    </div>
-  </div>
+    [data]="game"
+    [btnTag]="'Add to favorite'"
+    [btnFunc]="AddFavorite"
+  ></app-card>
 </div>
-<app-modal
-  *ngIf="modal"
-  [modal]="modal"
-  (modalChange)="modal=$event"
-  [data]="data"
-></app-modal>
-
