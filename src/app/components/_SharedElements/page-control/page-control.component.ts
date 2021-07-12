@@ -14,7 +14,7 @@ export class PageControlComponent implements OnInit {
   constructor() {}
 
   previousPage() {
-    const isPageFalse = this.activePage <= 0; //check if page is not less then 0/
+    const isPageFalse = this.activePage <= 1; //check if page is not less then 0/
     if (!isPageFalse) this.activePage = this.activePage - 1;
     this.newActivePage.emit(this.activePage);
     console.log(this.activePage);

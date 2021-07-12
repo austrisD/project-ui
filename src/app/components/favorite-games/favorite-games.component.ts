@@ -21,8 +21,8 @@ export class FavoriteGamesComponent implements OnInit {
 
   test(pageCount) {
     // console.log(this.favorites.length);
-    console.log(this.pageCount);
-    this.pageCount = Object.keys(this.favorites).length;
+    console.log(this.activePage);
+    // this.pageCount = Object.keys(this.favorites).length;
   }
 
   deleteFavorite() {
