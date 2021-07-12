@@ -3,8 +3,8 @@
   <p class="display-6">Saved: {{ favorites.length }}</p>
   <app-page-control
     [activePage]="activePage"
-    ([pageCount])="pageCount"
-    (newActivePage)="activePage = $event"
+    [pageCount]="pageCount"
+    (newActivePage)="activePage=$event"
   ></app-page-control>
   <button (click)="test($event)">test</button>
 </div>

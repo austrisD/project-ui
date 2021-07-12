@@ -6,10 +6,8 @@
       </button>
     </li>
 
-    <li *ngFor="let pageNR of pageCount" class="page-item">
-      <button (click)="setPage(pageNR)" class="page-link">
-        {{ pageNR + 1 }}
-      </button>
+    <li *ngFor="let nr of pageCount" class="page-item">
+      <button (click)="setPage(nr)" class="page-link">{{ nr + 1 }}</button>
     </li>
 
     <li class="page-item">
@@ -19,3 +17,5 @@
     </li>
   </ul>
 </nav>
+
+<!-- *ngFor="let pageNR of pageCount"  -->
