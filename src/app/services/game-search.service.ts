@@ -6,6 +6,10 @@ import { gameApi } from '../../secret/apiKeys.js';
   providedIn: 'root',
 })
 export class GameSearchService {
+  pageSize: number = 40;
+  pageSizeString: string = `&page_size=${this.pageSize}`;
+  activePage: number = 1;
+  activePageString: string = `&page=${this.activePage}`;
   constructor(private _obj: HttpClient) {}
 
   getGameDate() {
@@ -14,7 +18,11 @@ export class GameSearchService {
       `${gameApi.url}key=${gameApi.key}&search=${path.slice(
         path.search('/search/') + 8,
         path.length
-      )}&page_size=40`
+      )}${this.pageSizeString}`
     );
+  }
+  
+  changePage(nr) {
+    this.activePage = nr;
   }
 }

@@ -1,6 +1,12 @@
 <div class="container-fluid">
   <p class="display-5">Favorite game</p>
   <p class="display-6">Saved: {{ favorites.length }}</p>
+  <app-page-control
+    [activePage]="activePage"
+    ([pageCount])="pageCount"
+    (newActivePage)="activePage = $event"
+  ></app-page-control>
+  <button (click)="test($event)">test</button>
 </div>
 <div class="flexGame">
   <app-card

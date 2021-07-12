@@ -26,6 +26,8 @@ import { CardComponent } from './components/_SharedElements/card/card.component'
 import { PopUpComponent } from './components/_SharedElements/card/pop-up/pop-up.component';
 import { AddFavoriteComponent } from './components/_SharedElements/add-favorite/add-favorite.component';
 import { DeleteFavoriteComponent } from './components/_SharedElements/delete-favorite/delete-favorite.component';
+import { PageControlComponent } from './components/_SharedElements/page-control/page-control.component';
+import { LoadingComponent } from './components/_SharedElements/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { DeleteFavoriteComponent } from './components/_SharedElements/delete-fav
     PopUpComponent,
     AddFavoriteComponent,
     DeleteFavoriteComponent,
+    PageControlComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ManageFavoriteService {
+  activePage: number = 1;
   private apiUrl = 'http://localhost:5000/favorite';
   constructor(private http: HttpClient) {}
 
@@ -27,6 +28,6 @@ export class ManageFavoriteService {
     const url = `${this.apiUrl}/${'record.id'}`;
     return this.http.delete<any>(url);
   }
-  
+
   changeFavoriteData() {}
 }

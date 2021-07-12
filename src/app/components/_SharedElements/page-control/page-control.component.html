@@ -1,0 +1,21 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <button (click)="previousPage()" class="page-link">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+
+    <li *ngFor="let pageNR of pageCount" class="page-item">
+      <button (click)="setPage(pageNR)" class="page-link">
+        {{ pageNR + 1 }}
+      </button>
+    </li>
+
+    <li class="page-item">
+      <button (click)="nextPage()" class="page-link">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

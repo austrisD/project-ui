@@ -11,16 +11,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   game: any = [];
   selectGame: any;
 
-  SearchResults: any = {
-    results: [
-      {
-        name: '',
-        background_image: '',
-        genres: '',
-        length: '',
-      },
-    ],
-  };
+  SearchResults: any = {};
 
   constructor(
     private _obj: GameSearchService,
@@ -40,24 +31,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     return path.slice(path.search('/search/') + 8, path.length);
   }
 
-  // returnContainerHight() {
-  //   if (this.SearchResults.results.length * 65 < 500) {
-  //     return `fit-content`;
-  //   } else {
-  //     return `${this.SearchResults.results.length * 65}px`;
-  //   }
-  // }
-
   ngOnInit(): void {}
 
-
   AddFavorite(game) {
-
     this.manageFavoriteService
       .addFavorites(game)
       .subscribe((game) => this.game.push(game));
   }
 
-  
   ngOnDestroy(): void {}
 }

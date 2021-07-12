@@ -29,14 +29,11 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
+  height: 2500px;
   width: 100%;
-  max-width: 100%;
-  max-height: 2500px;
-  height: min-content;
-  align-items: center;
-  justify-content: space-between;
   overflow-x: auto;
+  justify-content: space-between;
+  column-gap: 10px;
 }
 
 .backdrop {
