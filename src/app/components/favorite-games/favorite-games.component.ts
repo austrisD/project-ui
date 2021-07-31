@@ -6,22 +6,17 @@ import { ManageFavoriteService } from '../../services/manage-favorite.service';
   templateUrl: './favorite-games.component.html',
 })
 export class FavoriteGamesComponent implements OnInit {
-  favorites: any[] = [];
+  favorites: any = this.manageFavoriteService
+    .getFavorites()
+    .subscribe((favorites) => (this.favorites = favorites));
   activePage = this.manageFavoriteService.activePage;
-  pageCount: number = 10;
+  itemCount: Number =  this.favorites.length;//still same
 
   constructor(private manageFavoriteService: ManageFavoriteService) {}
 
-  ngOnInit(): void {
-    this.manageFavoriteService
-      .getFavorites()
-      .subscribe((favorites) => (this.favorites = favorites));
-    // this.pageCount = Object.keys(this.favorites).length;
-  }
+  ngOnInit(): void {}
 
   test(pageCount) {
-    // console.log(this.favorites.length);
-    console.log(this.activePage);
     // this.pageCount = Object.keys(this.favorites).length;
   }
 

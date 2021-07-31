@@ -13,8 +13,23 @@ const httpOptions = {
 })
 export class ManageFavoriteService {
   activePage: number = 1;
+  pageSize: number = 20;
   private apiUrl = 'http://localhost:5000/favorite';
+
   constructor(private http: HttpClient) {}
+
+  // getPageCount(pageSize) {
+  //   this.pageSize = pageSize;
+  //   let getObject = this.http.get(`${this.apiUrl}`);
+  //   let PageCount = 40;
+
+  //   // getObject.subscribe((data) => {
+  //   //   console.log(data);
+  //   //   PageCount = Object.keys(data).length;
+  //   // });
+ 
+  //   return PageCount;
+  // }
 
   getFavorites(): Observable<any> {
     return this.http.get<any>(this.apiUrl);

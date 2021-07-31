@@ -1,14 +1,14 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li [ngClass]="{ disabled: activePage == 0 }" class="page-item">
+    <li [ngClass]="{ disabled: activePage == 1 }" class="page-item">
       <button (click)="previousPage()" class="page-link">
         <span aria-hidden="true">&laquo;</span>
       </button>
     </li>
 
     <li
-      *ngFor="let nr of pageCount"
-      [ngClass]="{ active: nr == activePage -1 }"
+      *ngFor="let nr of itemCount"
+      [ngClass]="{ active: nr == activePage - 1 }"
       class="page-item"
     >
       <button (click)="setPage(nr)" class="page-link">
@@ -18,7 +18,7 @@
 
     <li
       class="page-item"
-      [ngClass]="{ disabled: activePage == pageCount.length }"
+      [ngClass]="{ disabled: activePage == itemCount.length }"
     >
       <button (click)="nextPage()" class="page-link">
         <span aria-hidden="true">&raquo;</span>
@@ -26,6 +26,6 @@
     </li>
   </ul>
 </nav>
-active page:{{ activePage }}
+<br>
 
 <!-- *ngFor="let pageNR of pageCount"  -->
